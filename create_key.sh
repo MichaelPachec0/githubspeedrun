@@ -1,6 +1,8 @@
 #/bin/bash
-
-ssh-keygen -t ed25519
+FILE=~/.ssh/id_ed25519.pub
+if [[! -f "$FILE"]]; then
+  ssh-keygen -t ed25519
+fi
 cat "Host github.com
 	PreferredAuthentications publickey
 	IdentitiesOnly yes
